@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<form action="" autoomplete="off"novalidate>-->
+		<form action=""id="myForm">
+			<label for="email">邮箱：</label>
+			<input type="email" name="email" id="email">
+			<br>
+			<label for="home">主页：</label>
+			<input type="url" name="home" id="home">
+			<br>
+			<label for="phone">电话：</label>
+			<input type="tel" name="phone" id="phone">
+			<br>
+			<label for"keyword">关键字</label>
+			<input type="search" name="keyword" id="keyword">
+			<br>
+			<label for="num">数字：</label>
+			<input type="range" name="num" id="num" min="1" max="10" step="2">
+			<br>
+			<label for="birthday">出生日期：</label>
+			<input type="month" name="birthday" id="birthday">
+			<br>
+			<label for="color">颜色：</label>
+			<hr>
+			
+			<label for="name">用户名：</label>
+			<input type="text" name="name" id="name" placeholder="请输入登陆用户名" required autocomplete="off"autofocus>
+			<br>
+			<label for"age">年龄：</label>
+		    <input type="text" name="age" id="age" pattern="\d{1,2}">
+		    <br>
+			<label for="city">城市：</label>
+			<input type="text" name="city" id="city" list="citylist">
+			<datalist id="citylist">
+				<option value="nanjing">南京</option>
+				<option value="beijing">北京</option>
+				<option value="shanghai">上海</option>
+				<option value="guangdong">广东</option>
+			</datalist>
+			
+			<br>
+		
+		</form>
+		<input type="submit" value="外部的提交按钮" form="myForm">
+	</body>
+</html>

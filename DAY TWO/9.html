@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+			<!-- table>(tr>td{hello$}*4)*4 -->
+			<table border="1" width="500px" height="300px">
+				<tr align="center">
+					<td colspan="4">hello1</td>
+				</tr>
+				<tr>
+					<td rowspan="3">hello1</td>
+					<td>hello2</td>
+					<td>hello3</td>
+					<td>hello4</td>
+				</tr>
+				<tr>
+					<td>hello2</td>
+					<td rowspan="2" colspan="2">hello3</td>
+				</tr>
+				<tr>
+					<td>hello2</td>
+				</tr>
+			</table>
+	</body>
+</html>
