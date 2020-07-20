@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title>模块控制器</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng03.js"></script>
+	</head>
+	<!-- 指定模块中的控制器 -->
+	<body ng-controller="MyController">
+		<h1>
+			姓名：{{name||"无名氏"}}
+		</h1>
+	</body>
+</html>

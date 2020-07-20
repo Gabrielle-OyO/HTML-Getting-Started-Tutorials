@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="angular/angular.min.js"></scirpt>
+		<script src="js/ng04.js"></script>
+	</head>
+	<body ng-controller="MyController">
+		<!-- 
+		 使用ng-model指令实现数据双向绑定
+		 即页面视图的输入可以传递到控制器作用域中，控制器作用域中的数据也可以传递到页面视图中表单元素一般都双向绑定
+		 -->
+		 用户名：<input type="text" ng-modle="username">
+		 <!-- 用户名：<input type="text" value="{{username}}" -->
+		 <br>
+		 
+		 <!-- 
+		  单向绑定的两种方式：
+		  1.{{}}表达式，获取不到数据时会原样显示，可能会出现闪烁现象
+		  2.ng-bind指令，获取不到数据时不显示
+		  HTML的容量标签一般都单向绑定，如<h1><div>-->
+		  
+		<h1>姓名：{{username}}</h1>
+		<h2 ng-bind="username"></h2>
+	</body>
+</html>

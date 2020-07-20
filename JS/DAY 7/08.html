@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件参数</title>
+		<script src="js/jquery.min.js"></script>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng08.js"></script>
+	</head>
+	<body>
+		<button id="btn">点我</button>
+		<hr>
+		
+		<div ng-controller="EventController">
+			<!-- 调用方法时传入内置的事件对象$event -->
+			<button ng-click="show($event)">Click Me</button>
+		</div>
+	</body>
+</html>

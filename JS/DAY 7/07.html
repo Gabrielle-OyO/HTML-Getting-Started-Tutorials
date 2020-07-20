@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng07.js"></script>
+	</head>
+	<body>
+		<div ng-controller="FirstController">
+			<h3 ng-bind="name"></h3>
+			<!-- <h3 ng-bind="show()"></h3> -->
+			<!-- 虽然执行了，但没意义，不是事件触发 -->
+			<!-- <button ng-bind="show()">点我</button> -->
+			<button ng-click="shouw()">Click Me</button>
+			<br>
+			<div ng-controlller="SecondController">
+				<h3 ng-bind="name"></h3>
+				<button ng-click=="show()">点我</button>
+			</div>
+		</div>
+		<hr>
+		
+		<div ng-controller="SecondController">
+			<h3 ng-bind="name"></h3>
+			<button ng-click="show()">点我</button>
+			
+			
+			
+			<!-- 
+			 可以使用事件指令调用本作用域中定义的方法，如ng-click、ng-mouseover等
+			 
+			 总结：
+			 1.子控制器可以访问父控制器中的数据（变量、方法等）
+			 2.如果出现同名的情况，可以使用$root、$parent对象来访问
+			 -->
+		</div>
+	</body>
+</html>

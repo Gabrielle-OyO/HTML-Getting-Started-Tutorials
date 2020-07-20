@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="angular/angular.min.js"></script>
+		<script scr="js/ng05.js"></script>
+	</head>
+	<body>
+		<div ng-controller="FirstController">
+			<h3 ng-bind="name"></h3>
+			<h3 ng-bind="age"></h3>
+			<h3 ng-bind="user.name"></h3>
+			<br>
+			<div ng-controller="SecondController">
+				<h3 ng-bind="name"></h3>
+				<!-- 在子控制器作用域中可以访问夫控制器作用域对象 -->
+				<h3 ng-bind="age"></h3>
+				<!-- 如果父子控制器作用域中数据同名，可以使用$parent访问夫控制器作用域中的数据 -->
+				<h3 ng-bind="$parent.name"></h3>
+			</div>
+		</div>
+		<hr>
+		
+		<div ng-controller="SecondController">
+				<h3 ng-bind="name"></h3>
+				<h3 ng-bind="age"></h3>
+			</div>
+			<hr>
+		<!-- 
+			在html页面中每定义一个ng-controller，就会创建一个控制器对象Controller
+			如这里会创建两个SecondController，并且互相独立，只是共享相同的代码而已
+		 -->
+		<div ng-controller="SecondController">
+				<h3 ng-bind="name"></h3>
+				<h3 ng-bind="age"></h3>
+			</div>
+			<hr>
+			
+		<div ng-controller="ThirdController">
+			<h3 ng-bind="hobby"></h3>
+			<h3 ng-controller="FourthController" ng-bind="address"></h3>
+			
+		</div>
+	</body>
+</html>

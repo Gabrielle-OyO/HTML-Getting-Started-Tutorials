@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="angular/angular.min.js"></script>
+		<script scr="js/ng06.js"></script>
+	</head>
+	<body>
+		<h3 ng-bind="height"></h3>
+		<h3 ng-bind="name"></h3>
+		<hr>
+		
+		
+		<div ng-controller="FirstController">
+			<h3 ng-bind="name"></h3>
+			<h3 ng-bind="age"></h3>
+			
+			<h3>{{height}}</h3>
+			<!-- 如果当前作用域和根作用域中的数据同名，可以使用$root访问根据作用域中的数据 -->
+            <h3>{{$parent.name}}</h3>
+			<br>
+			<div ng-controller="SecondController">
+				<h3 ng-bind="name"></h3>
+				<h3>{{$parent.name}}</h3>
+				<!-- <h3>{{$parent.$parent.name}} -->
+				<h3>{{root.name}}</h3>
+			</div>
+		</div>
+	</body>
+</html>
