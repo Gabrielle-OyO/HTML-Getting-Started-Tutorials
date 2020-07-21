@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置过滤器： date\lowercase</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng05.js"></script>
+	</head>
+	<body>
+		
+		<div ng-controller="FilterControler">
+			<h1>日期过滤器</h1>
+			<h3>默认格式：{{now}}</h3>
+			<!-- GMT格林威治标准时间 -->
+			
+			<hr>
+			
+			<h3>{{now|date}}</h3>
+			<h3>{{now|date:'shortDate'}}</h3>
+			<h3>{{now|date'mediumDate}}</h3>
+			<h3>{{now|date:'longDate'}}</h3>
+			<h3>{{now|date:'fullDate'}}</h3>
+			<h3>{{now|date:'shortTime'}}</h3>
+			<h3>{{now|date:'mediumTime'}}</h3>
+			<h3>{{now|date:'short'}}</h3>
+			<h3>{{now|date:'medium'}}</h3>
+			<br>
+			<h4>{{now|date:'y-MM-d H:m:ss:sss a EEEE"}}</h4>
+			<h4>{{now|date:'y年MM月dd日  HH:mm:ss'}}</h4>
+			<hr>
+			
+			<h1>lowercase和uppercase过滤器</h1>
+			<h3>{{"Hello World"|lowercase}}</h3>
+			<h3>{{"Hello World"|uppercase}}</h3>
+		</div>
+	</body>
+</html>

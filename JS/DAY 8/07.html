@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置过滤器：filter</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng07.js"></script>
+	</head>
+	<body>
+		
+		<div ng-controller="FilterController">
+			<!-- 例1：筛选简单数据，包含指定字符串（不区分大小写 -->
+			<h3>{{arr | filter : 'a'}}</h3>
+			<h3>{{arr | filter: 'al'}}</h3>
+			<h3>{{arr | filter : '!a'}}</h3>
+			<!-- 例2：筛选简单数据，完整匹配，区分大小写 -->
+			<h3>{{arr | filter : 'Alice' : true}}</h3>
+			<hr>
+			
+			<!-- 例3.筛选复杂数据，无限制匹配，只要数据中包含指定字符串就行，name、age、pwd -->
+			<h3>{{users | filter : {name:'a'} }</h3>
+			<h3>{{users | filter : {name:'jack',age:21} : true}}</h3>
+			<hr>
+			
+			<!-- 例5：使用自定义规则筛选数据，   -->
+			<h3>{{arr | filter : comp}}</h3>
+			<!-- 例6：限制年龄大于21 -->
+			<h3>{{users | filter : comp2}}</h3>
+		</div>
+	</body>
+</html>

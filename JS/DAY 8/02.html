@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表达式</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng02.js"></script>
+	</head>
+	<body>
+		
+		<div ng-controller="EventController">
+			<h3>name={{name}}</h3>
+			<h3>age={{age}}</h3>
+			
+			<h3>name:{{person.name}}</h3>
+			
+			<h3>second hobby:{{hobbies[1]}}</h3>
+			<hr>
+			
+			<h3>sex:{{sex}}</h3>
+			<!-- <h3>{{age++}}</h3> -->
+			<!-- <h3>{{10&8}}</h3> -->
+			<h3>{{10&8}}</h3>
+			<h3>{{person.age>18?"成年":"未成年"}}</h3>
+			<h3>{{"age:"+age}}</h3>
+			<h3>age:{{age}}</h3>
+		</div>
+	</body>
+</html>

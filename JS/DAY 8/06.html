@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置过滤器：limitTo、json</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng06.js"></script>
+	</head>
+	<body>
+		
+		<div ng-controller="FirstController">
+			<h1>limitTo过滤器</h1>
+			<h3>原字符串：{{“Hello world"}}</h3>
+			<h3>{{“Hello world" | limitTo:2}}</h3>
+			<h3>{{“Hello world" | limitTo:-2}}</h3>
+			<h3>{{“Hello world" | limitTo66}}</h3>
+			<h3>{{“Hello world" | limitTo:2:6}}</h3>
+			<br>
+			
+			<h3>截取前2个字符，然后变为大写：{{"Hello World"|limitTo:2|uppercase}}</h3>
+			<br>
+			
+			<h3>{{[3,7,12,4] | limitTo : 2}}</h3>
+			<h3>{{[3,7,12,4] | limitTo : -2}}</h3>
+			<h3>{{[3,7,12,4] | limitTo : 2:3}}</h3>
+			
+			<h1>json过滤器</h1>
+			<h3>{{ {name:'tom',age:25} | json}}</h3>
+		</div>
+	</body>
+</html>

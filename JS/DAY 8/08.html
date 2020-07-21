@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置指令：ng-form</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng08.js"></script>
+	</head>
+	<body ng-controller="DirectiveController" ng-cloak>
+		
+		<form name="fm" novalidate ng-submit="doSubmit()">
+			<p>
+				<label for="txtName">Name:</lable>
+				<input type="text" id="txtName" name="name" placeholder="请输入用户名" ng-modle="user.name" required>
+					<span ng-show="fm.name.$pristine">用户姓名</span>
+					<span ng-show="fm.name.$dirty&&fm.name.$valid">正确</span>
+					<span ng-show="fm.name.$dirty&&fm.name.$invalid">必填</span>
+			</p>
+			<p>
+				<label for="txtAge">Age:</lable>
+				<input tyoe="text" id="txtAge" name="age" placeholder="请输入年龄" ng-modle="user.age" reqiured>
+			</p>
+			<p>
+				<label for="txtEmail">Email:</label>
+				<input type="email" id="txtEmail" name="email" placeholder="请输入邮箱" ng-modle="user.email" required>
+					<span ng-show="fm.email.$pristine">用户邮箱</span>
+					<span ng-show="fm.email.$dirty&&fm.email.$valid">正确</span>
+					<span ng-show="fm.email.$error.required">必填</span>
+					<span ng-show="fm.email.$error.email">邮箱格式不正确</span>
+			</p>
+			<p>
+				<input type="submit" value="提交" ng-disable="fm.$invalid">
+				<input tyoe="reset" value="重置"
+			</p>
+		</form>
+	</body>
+</html>
