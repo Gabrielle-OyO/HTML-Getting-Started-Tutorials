@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置指令：ng-repeat</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng05.js"></script>
+	</head>
+	<body ng-controller="DirectiveController">
+		<h3>直接输出：{{arr}}</h3>
+		<hr>
+		
+		<h3>遍历简单数据</h3>
+		<!-- 方式1 -->
+		<ul>
+			<li ng-repeat="item in arr">{{item}}</li>
+			<!-- <li ng-repeat="item in user">{{item}}</li> -->
+			</ul>
+			<!-- 方法2 -->
+			<ul>
+				<!-- <li ng-repeat="(k,v) in arr">{{k}}:{{v}}</li> -->
+				<li ng-repeat="(k,v) in user">{{k}}:{{v}}</li>
+			</ul>
+			<br>
+			
+			<!-- 遍历有重复元素的集合时，必须使用track 不用，此时只能使用方法2 -->
+			<ul>
+				<li ng-repeat="(k,v) in arr2 track by k">{{k}}:{{v}}</li>
+			</ul>
+			
+			<h3>遍历复杂数据</h3>
+			<!-- table>(thead>tr>th*6)+tbody -->
+			<table width="500" border="1" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>性别</th>
+						<th>密码</th>
+						<th>身高</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="u in users">
+						<!-- <td ng-repeat="(k,v) in u">{{v}}</td> -->
+						<!-- 必须显示所有属性，且只能暗属性顺序显示，不建议 -->
+						<td>{{u.id}}</td>
+						<td>{{u.name}}</td>
+						<td>{{u.age}}</td>
+						<td>{{u.sex}}</td>
+						<td>{{u.pwd}}</td>
+						<td>{{u.height}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr>
+			
+			<h3>结合过滤器一起使用</h3>
+			<ul>
+				<!-- <li ng-repeat="u in users|filter:{name:'a'}">{{u.name}}</li> -->
+				<li ng-repeat="u in users|orderBy:'name'">{{u.name}}</li>
+			</ul>
+			
+			<h3>获取遍历状态</h3>
+			<table width="500" border="1" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>key</th>
+						<th>value</th>
+						<th>$index</th>
+						<th>$first</th>
+						<th>$middle</th>
+						<th>$last</th>
+						<th>$even</th>
+						<th>$odd</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="(k,v) in arr">
+						<td>{{k}}</td>
+						<td>{{v}}</td>
+						<td>{{$index}}</td>
+						<td>{{$first}}</td>
+						<td>{{$middle}}</td>
+						<td>{{$last}}</td>
+						<td>{{$even}}</td>
+						<td>{{odd}}</td>
+					</tr>
+				</tbody>
+			</table>
+	</body>
+</html>

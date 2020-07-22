@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置指令：ng-option</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng06.js"></script>
+	</head>
+	<body ng-controller="DirectiveController">
+		
+		<select ng-options="k as v for (k,v) in arr" ng-model="s1">
+			<option value>请选择
+		</select>
+		<h3>{{s1}}</h3>
+		<hr>
+		
+		<select ng-options="u. id as u. name for u in users" ng-model="s2">
+			<option value>请选择
+		</select>
+		<h3>{{s2}}</h3>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置过滤器：orderBy</title>
+		<script src="angular/angualr.min.js"></script>
+		<script src="js/ng01.js"></script>
+	</head>
+	<body ng-controller="FilterController">
+		
+		<h3>{{users | orderBy : "name"}}</h3>
+		
+		<h3>{{users | orderBy : ["pwd","name"]}}</h3>
+		
+		<h3>{{users | orderBy : "-age"}}</h3>
+		
+		<h3>{{users | orderBy : "age : true"}}</h3>
+		
+		<!-- 根据name的长度由短到长排列 -->
+		
+		<h3>{{users | orderBy : sortName}}</h3>
+	</body>
+</html>

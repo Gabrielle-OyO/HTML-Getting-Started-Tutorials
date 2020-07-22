@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置指令： ng-if、ng-swicth</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng04.js"></script>
+		<style>
+			div{
+				width:200px;
+				height:200px;
+				background-color:red;
+			}
+		</style>
+	</head>
+	<body ng-controller="DirectiveController">
+		
+		<button ng-click="doChange()">变</button>
+		<br>
+		
+		<!-- <div ng-if="flag"></div> -->
+		<!-- <div ng-show="flag"></div> -->
+		<div ng-hide="flag"></div>
+		<hr>
+		
+		<input type="text" ng-model="score" ng-init="score='B'>
+		<br>
+		<h3 ng-switch="score|uppercase">
+		    <span ng-switch-when="A">真棒</span>
+		    <span ng-switch-when="B">很好</span>
+		    <span ng-switch-when="C">一般</span>
+		    <span ng-switch-when="D">什么玩意</span>
+		    <span ng-switch-default>走开</span>
+		</h3>
+	</body>
+</html>

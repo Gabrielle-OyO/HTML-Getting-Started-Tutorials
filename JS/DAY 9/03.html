@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置指令：属性指令</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng03.js"></script>
+		<style>
+			.red{
+				color: red;
+				font-size: 30px;
+			}
+			.blue{
+				color:blue;
+				font-size:30px;
+			}
+		</style>
+	</head>
+	<body ng-controller="DirectiveController">
+		
+		<h3>
+			<!-- 
+			 ng-href指令在变量有值时才会生成href属性，可确保链接的正确性
+			 而href属性会直接显示，跳转到当前页面，此时连接没有意义
+			 -->
+			 <a href="{{url}}">itany1</a>
+			 <hr>
+			 <a ng-href="{{url}}">itany2</a>
+			 <!-- ng-href关联作用域数据时需要加{{}} -->
+		</h3>
+		<hr>
+		
+		<input type="text" ng-disabled="readonly">
+		<input type="button" value="readonly" ng-click="doReadyOnly()">
+		<hr>
+		
+		<div ng-class="cls">welcome to itany</div>
+		<input type="button" value="改变样式" ng-click="doClass()"
+	</body>
+</html>
