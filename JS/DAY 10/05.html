@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义指令配置：作用域隔离策略</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng05.js"></script>
+	</head>
+	<body ng-controller="DirectiveController">
+		<!-- 
+		 @，用于简单数据-->
+		 <!-- 在控制器作用域中访问 -->
+		 name:<input type="text" ng-model="name"><br>
+		 age:<input type="text" ng-model="age"><br>
+		 name={{name}},age={{age}}
+		 <hr>
+		 <!-- 在指令作用域中访问 -->
+		 <!-- <div first username="{{name}}"></div> -->
+		 <!-- 默认无法访问 -->
+		 <!-- <div first usersname="{{name}}"></div> -->
+		 <!-- 此处的{{name}}表示父作用域的name变量 -->
+		 <div first name="{{name}}" age="{{age}}"></div>
+		 <hr>
+		 <hr>
+		 <hr>
+		 <hr>
+		 
+		 <!-- 
+		  =，用于作用对象
+		  -->
+		  <!-- 在作用域中访问 -->
+		  users.name:<input type="text" ng-model="users.name">
+		  users.age:<input type="text" ng-model="users.age">
+		  user.name={{users.name}},users.age={{users.age}}
+		  <hr>
+		  <!-- 在指令作用谷中访问 -->
+		  <div second user="user"></div>
+		  <!-- 此处的user表示父作用域的user对象，不需要使用表达式{{}}，否则认为是值 -->
+		  
+		  <hr>
+		  <hr>
+		  <br>
+		  <br>
+		  <!-- 
+		   &,用于方法
+		   -->
+		   <!-- 在控制器作用域中访问 -->
+		   <input type="button" value="按钮1" ng-click="study()">
+		   <hr>
+		   <!-- 在指令作用域中访问 -->
+		   <div third study="study()"></div>
+		   <!-- 此处的study（）表示父作用域中的study（） -->
+	</body>
+</html>
