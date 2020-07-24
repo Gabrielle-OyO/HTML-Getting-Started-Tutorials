@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>使用$http服务发送跨域请求</title>
+		<script src="angular/angular.min.js"></script>
+		<script src="js/ng03.js"></script>
+	</head>
+	<body ng-controller="ServiceController">
+		城市:<input type="text" ng-model="obj.city">
+		路线:<input type="text" ng-model="obj.bus">
+		<hr>
+		
+		<div ng-hide="flag">
+			<h3>{{result.name}},共{{result.stationdes.length}}站</h3>
+			<ul>
+				<li gn-repeat="bus in result.stationdes">
+					{{bus.stationNum}}.{{bus.name}}
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
