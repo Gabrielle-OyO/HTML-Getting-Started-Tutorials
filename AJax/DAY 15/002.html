@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>artTemplate基本用法</title>
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script src="js/template-native.js"></script>
+		<script id="itany" type="text/html">
+			<h2>班级名称:{{className}}</h2>,
+			
+			<ul>
+				{{each students as student i}}
+					<li>序号：{{i+1}},学号：{{{student.id}},姓名：{{student.name}}</li>
+				{{/each}}
+			</ul>
+			
+			{{if className=="wbs16092"}}
+				<p>你是二楼wbs16092班的！</p>
+			{{else if className=="wbs16101"}}
+				<p>你是一楼wbs16101班的！</p>
+			{{else}}
+				<p>你是哪个班的哦？</p>
+			{{/if}}
+		</script>
+		
+		<script id="itany2" type="text/html">
+			<h2>班级名称:<%=className %</h2>,
+			
+			<ul>
+			    <% for(var i=0;i<students.length;i++){%>
+					<li>序号:<%=i+1%>,学号:<%=students[i].id%>,姓名:<%=students[i].name%></li>
+					<% } %>
+			</ul>
+			
+			<% if(className="wbs16092"){%>
+			<p>你是二楼我不是16092班的!}</p>
+			<%}else if(className=="wbs16101"){%>
+			<p>你是一楼wbs16101班的!}</p>
+			<%}else{%>
+			<p>你是哪个班的哦</p>？
+			<%} %>
+		</script>
+		
+		<script>
+		var data={
+			className:"wbs16902",
+			students:[
+				{
+					id:1001,
+					name:"tom"
+				},
+				{
+					id:1002,
+					name:"mike"
+				},
+				{
+					id:1003,
+					name:"alice"
+				},
+				{
+					id:1004,
+					name:"jack"
+				},
+			],
+		};
+		
+		$(function(){
+			var result=template("itany2,data");
+			$("#info").html(result);
+		});
+		</script>
+	</head>
+	<body>
+	<div id="info"></div>
+	</body>
+</html>
