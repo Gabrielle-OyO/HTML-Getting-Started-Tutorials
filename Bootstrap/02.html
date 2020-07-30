@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width,initial-scals=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script sec="js//bootstrap.min.js"></script>
+		<style>
+			.col1{
+				background:red;
+			}
+			.col2{
+				background:yellow;
+			}
+			.col3{
+				background:blue;
+			}
+			.col4{
+				background:green;
+			}
+			hr{
+				border:1px solid #666;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 常用设备尺寸：<768、[768，992）、[992,1200)、>=1200 -->
+		<!-- .container>.row>.col$[col$}*4 -->
+		
+		<div class="row">
+			<div class="col1">col1</div>
+			<div class="col2">col2</div>
+			<div class="col3">col3</div>
+			<div class="col4">col4</div>
+		</div>
+		<hr>
+		
+		<!-- 根据尺寸变化，当达到临界值时会自动适应，匹配相应的设置（实现响应式布局） -->
+		<div class="row">
+			<div class="col1 col-xs-3 col-sm-2 col-md-1 col-lg-3">col1</div>
+			<div class="col2 col-xs-3 col-sm-2 col-md-1 col-lg-3">col2</div>
+			<div class="col3 col-xs-3 col-sm-2 col-md-1 col-lg-3">col3</div>
+			<div class="col4 col-xs-3 col-sm-2 col-md-1 col-lg-3">col4</div>
+		</div>
+		<hr>
+		
+		<!-- 尺寸为设置时会默认继承较小尺寸 -->
+		<div class="col1-col-xs-3">col1</div>
+		<div class="col2 col-xs-3">col2</div>
+		<div class="col3 col-xs-3">col3</div>
+		<div class="col4 col-xs-3">col3</div>
+		<hr>
+		
+		<!-- 较小尺寸未设置时默认会独占一行 -->
+		<div class="row">
+			<div class="col1 col-md-3">col1</div>
+			<div class="col2 col-md-3">col2</div>
+			<div class="col3 col-md-3">col3</div>
+			<div class="col4 col-md-3">col4</div>
+		</div>
+		<hr>
+		
+		
+		<!-- 可以自定义每行列所占网格数 -->
+		<div class="row">
+			<div class="col1 col-sm-1">col1</div>
+			<div class="col2 col-sm-2">col2</div>
+			<div class="col3 col-sm-3">col3</div>
+			<div class="col4 col-sm-4">col4</div>
+		</div>
+		<hr>
+		
+		<!-- 列的网格总数不能超过12，否则多余的一列会另起一行 -->
+		<div class="row">
+			<div class="col1 col-sm-4">col1</div>
+			<div class="col2 col-sm-4">col2</div>
+			<div class="col3 col-sm-5">col3</div>
+			<div class="col4 col-sm-3">col4</div>
+		</div>
+	</body>
+</html>

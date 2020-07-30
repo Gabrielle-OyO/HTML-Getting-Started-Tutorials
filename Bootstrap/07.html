@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>bootstrap</title>
+			<link href="css/bootstrap.css" rel="stylesheet">
+			<script src="js/jquery.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<style>
+				hr{
+					border:1px solid #666;
+				}
+				body{
+					margin:50px;
+				}
+			</style>
+	</head>
+	<body>
+		<!-- 基本用法 -->
+			<form>
+				<div class="form-group">
+					<label for="email">电子邮件</label>
+					<input type="email" id="email" class="form-control" placeholder="请输入电子邮件" disabled>
+				</div>
+				<div class="form-group">
+					<label for="pwd">密码</label>
+					<input type="password" id="pwd" class="form-control" placeholder="请输入密码">
+				</div>
+			</form>
+			<hr>
+		
+			<!-- 内联表单 -->
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="email" class="control-label sr-only">电子邮件</label>
+					<input type="email" id="email" class="form-control" placeholder="请输入电子邮件">
+				</div>
+				<div class="form-group">
+					<label for="pwd" class="control-label">密码</label>
+					<input type="password" id="pwd" class="form-control" placeholder="请输入密码">
+				</div>
+				<!-- 输入框组（组件） -->
+				<div class="form-group"> <!-- 表单组 -->
+					<label for="money" class="control-label">金额</label>
+					<div class="input-group"> <!-- 输入框组 -->
+						<div class="input-group-addon">$</div>
+						<input type="text" id="money" class="form-control" placeholder="请输入金额">
+						<div class="input-group-addon">.00</div>
+					</div>
+					<div class="input-group input-group-lg">
+						<div class="input-group-addon">@</div>
+						<input type="email" class="form-control" placeholder="请输入电子邮件">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon">
+							<input type="checkbox" name="" id="">
+						</div>
+						<input type="text" class="form-control" placeholder="请输入年龄">
+					</div>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="请输入年龄">
+						<div class="input-group-addon">
+							<input type="radio" name="" id="">
+						</div>
+					</div>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="请输入关键字">
+						<div class="input-group-btn">
+							<button class="btn btn-default">搜索</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<hr>
+		
+			<!-- 水平排列的表单 -->
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label for="email" class="control-label col-sm-2 col-sm-offset-2">电子邮件</label>
+					<div class="col-sm-6">
+						<input type="email" id="email" class="form-control" placeholder="请输入电子邮件">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="pwd" class="control-label col-sm-2 col-sm-offset-2">密码</label>
+					<div class="col-sm-6">
+						<input type="password" id="pwd" class="form-control" placeholder="请输入密码">
+					</div>
+				</div>
+			</form>	
+			<hr>
+		
+			<!-- 被支持的控件 -->
+			<form action="">
+				<textarea class="form-control" rows="5" readonly>
+		阅读服务协议。。。。。。
+		阅读服务协议。。。。。。
+		阅读服务协议。。。。。。
+			问题：默认可以拖动文本域的大小，如何禁止？
+				</textarea>
+				
+				<div class="radio">
+					<label for="male">
+						<input type="radio" value="male" id="male" name="sex" checked>男
+					</label>
+					<label for="female">
+						<input type="radio" value="female" id="female" name="sex">女
+					</label>
+				</div>
+				<div class="checkbox">
+					<label for="">
+						<input type="checkbox">吃饭
+					</label>
+					<label for="">
+						<input type="checkbox">睡觉
+					</label>
+					<label for="">
+						<input type="checkbox">打豆豆
+					</label>
+				</div>
+				<select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+			</form>
+			<hr>
+		
+			<!-- 校验状态 -->
+			<form class="form-horizontal">
+				<div class="form-group has-success has-feedback">
+					<label for="email" class="control-label col-sm-2 col-sm-offset-2">电子邮件</label>
+					<div class="col-sm-6">
+						<input type="email" id="email" class="form-control input-lg" placeholder="请输入电子邮件">
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+				</div>
+				<div class="form-group has-error has-feedback">
+					<label for="pwd" class="control-label col-sm-2 col-sm-offset-2">密码</label>
+					<div class="col-sm-6">
+						<input type="password" id="pwd" class="form-control" placeholder="请输入密码">
+						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</div>
+			</form>	
+
+	</body>
+</html>
