@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			hr{
+				border:1px solid #666;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- modal模态框插件是一个以弹出对话框的形式出现的插件，web开发使用较多（重点—） -->
+		<!-- 模态声明 -->
+		<div class="modal" id="myModal">
+			<!-- 窗口声明 -->
+			<div class="modal-content">
+				<!-- 头部、主体、底部 -->
+				<div class="modal-header">
+					<span class="close" data-dismiss="modal">&times;</span>
+					<h4 class="modal-title">用户登陆</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="username" class="col-sm-3 control-label">用户名：</label>
+							<div class="col-sm-6">
+								<input type="text" id="username" class="form-control" placeholder="请输入用户名">
+							</div>
+							<label class="col-sm-3 control-label text-danger" style="text-align:left;">*不可为空</label>
+						</div>
+						<div class="form-group">
+							<label for="password" class="col-sm-3 control-label">密码：</label>
+							<div class="col-sm-6">
+								<input type="password" id="password" class="form-control" placeholder="请输入密码">
+							</div>
+							<label class="col-sm-3 control-label text-danger" style="text-align:left;">*不可为空</label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" data-dismiss="modal">关&nbsp闭</button>
+					<button class="btn btn-primary">登&nbsp;&nbsp;&nbsp;陆</button>
+				</div>
+			</div>
+		</div>
+		
+		<button class="btn btn-default" id="btnOpen">弹出模态框：通过JS编程方式</button>
+		<button class="btn btn-default" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">弹出模态框：通过data属性方式</button>
+		<hr>
+		
+		
+		<button class="btn btn-success" id="btn">模态框的方法</button>
+		
+		<script>
+			//通过JS编程的方式
+			$(function(){
+				$('#btnOpen').on('click',function(){
+					//参数、选项
+					$('#myModal').modal({
+						backdrop:'static',
+						keyboard:false,
+						show:true
+					});
+				});
+				
+				//方法
+				$('#btn').click(function(){
+					$('#myModal').modal('show');
+					setTimeout(function(){
+						$('#myModal').modal('hide');
+					},2000);
+				});
+				
+				//事件
+				$('#myModal').on('show.bs.modal',function(){
+					alert('模态框即将被显示');
+				});
+				$('#myModal').on('shown.bs.modal',function(){
+					alert('模态框已经显示出来了');
+				});
+				$('#myModal').on('hide.bs.modal',function(){
+					alert('模态框即将被关闭');
+				});
+				$('#myModal').on('hidden.bs.modal',function(){
+					alert('模态框已经被关闭');
+				});
+			});
+		</script>
+	</body>
+</html>
