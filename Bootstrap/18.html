@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			hr{
+				border:1px solid #666;
+			}
+			body{
+				margin:80px;
+			}
+			.tooltipMsg{
+				width:150px;
+				background:rgba(255,0,0,0.8);
+				color:white;
+				line-height:22px;
+				text-align:center;
+				border-radius:4px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- tooltip工具提示插件就是当鼠标移动到元素上市可以显示提示消息，也可以自定义显示方式 -->
+		
+		<button class="btn btn-default" data-togggle="tooltip" title="<i>welcome to itany</i>" 
+		data-animation="false">网博</button>
+		<br>
+		<hr>
+		
+		用户名：<input type="text" id="username" data-toggle="tooltip">
+		
+		<script>
+			//必须使用JS编程方式进行初始化
+			$('[data-toggle="tooltip"]:first').tooltip({
+				animation:true,//动画效果
+				//delay:1000,//延迟触发
+				//delay:{
+					//show:1000,
+					//hide:2000
+					//
+				},
+				html:true,//允许提示内容格式为html
+				placement:'top',//出现的位置
+				title:'消息默认值',//默认消息，如果设置了元素的title属性，则回复盖此title
+				trigger:'click',//触发方式
+				template:'<div class="tooltip tooltipMsg">欢迎来到南京网博</div>'//更待消息模板，自定义消息和显示样式
+			});
+			 
+			
+			$('#username').on('blur',function(){
+				if($('#username'.val()==''){
+					$('#username').tooltip({
+						placement:'right',
+							trigger:'manual',//自己控制促发的时机
+							title:'用户名不能为空',
+							//template:'<div class="toopltip tooltipMsg">用户名不能为空</div>'
+						}).tooltip('show');
+					}
+			});
+			
+			//设置提示消息在现实2秒后自动隐藏
+			$('[data-toggle="tooltip"]').each(function(){
+				$(this).on('shown.bs.tooltip',function(){
+					var _this=this;
+					setTimeout(()=>{
+						$(this).tooltip('hide');
+					},2000);
+				});
+			});
+		</script>
+	</body>
+</html>

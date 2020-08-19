@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			hr{
+				border:1px solid #666;
+			}
+			body{
+				margin:80px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- popover弹出插件就是当点击一个元素时弹出一个包含标题和内容的弹框，基本工具提示插件 -->
+		<button class="btn btn-info" id="btn"
+		data-toggle="popover"
+		title="<i>itany</i>"
+		data-content="<div class='text-info'>welcome<strong>to</strong>intay</div>"
+		data-animation="false"
+		data-html="true"
+		data-placement="top"
+		data-trigger="hover"
+		>网博</button>
+		
+		<button class="btn btn-primary" id="btn2" data-toggle="popover">Bootstrap</button>
+		<br>
+		<br>
+		
+		<div style="width:100px;height:100px;" class="bg-success" data-toggle="popover" id="itany"></div>
+		<br>
+		<br>
+		<button class="btn btn-success" id="btn3">点击此按钮在div上弹框</button>
+		
+		<script>
+			//必须进行初始化
+			$('#btn').popover();
+			
+			$('#btn2').popover({
+				title:'Bootstrap框架',
+				content:'Bootstrap是一个开源前端框架。。。',
+				placement:'bottom'
+			});
+			
+			
+			$('#btn3').on('click',function(){
+				$('#itany').popover({
+					title:'南京网博',
+					content:'南京网博么么哒。。。',
+					trigger:'manual'
+				}).popover('show');
+			});
+			
+			
+			$('[data-toggle="popover"]').on('show.bs.popover',function(){
+				var _this=this;
+				setTimeout(function(){
+					$(_this).popover('hide');
+				},1000);
+			});
+		</script>
+	</body>
+</html>

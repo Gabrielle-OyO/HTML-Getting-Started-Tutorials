@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			hr{
+				border:1px solid #666;
+			}
+			body{
+				margin:80px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- collapse折叠插件，通过点击可以折叠内容 -->
+		<button class="btn btn-primary" data-toggle="collapse"
+		data-target="#content">网博</button>
+		<br>
+		<br>
+		
+		<div class="collapse" id="content">
+			<div class="well">
+				welcome to itany
+			</div>
+		</div>
+		
+		<br>
+		<br>
+		
+		<button class="btn btn-warning" data-toggle="collapse" id="btn">折叠内容</button>
+		<hr>
+		
+		<div class="panel-group" id="itany">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a role="button" data-toggle="collapse" href="#contentl">
+							Collapsibel Group Item #1
+						</a>
+					</h4>
+				</div>
+				<div id="conten1" class="panel-collapse collapse in">
+					<div class="panel-body">
+						content1
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="collapse" data-togglr="collapse" href="#content2">
+							Collapsible Group Item #2
+						</a>
+					</h4>
+				</div>
+				<div id="contennt2" class="panel-collapse collapse">
+					<div class="panel-body">
+						content2
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="headingThree">
+					<h4 class="panel-heading">
+						<a class="collapsed" data-toggle="collapse" href="#content3">
+							Collapsible Group Item #3
+						</a>
+					</h4>
+				</div>
+				<div id="content3" class="panel-collapse collapse">
+					<div class="panel-body">
+						content3
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$('#btn').click(function(){
+				$('#content').collapse('toggle');
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			body{
+				margin:80px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- BootstrapValidator是一个基于Bootstrap的表单验证插件，内置了许多表单验证器，也可以自定义验证器，功能强大 -->
+		<form action="01.html" method="post" calss="form-horizontal" id"frmRedist">
+				<div class="form-group">
+					<label class="control-label sol-sm-2 col-sm-offset-3">用户名</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="username"></inout>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 col-sm-offset-3">密码</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" name="password">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 col-sm-offset-3">确认密码</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" name="repassword">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 col-sm-offset-3">电子邮件</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 col-sm-offset-3">年龄</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" name="age">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2 col-sm-offset-3">学历</label>
+					<div class="col-sm-4">
+						<select name="degree">
+							<option value="">--请选择学历--</option>
+							<option value="dazhuan">大专</option>
+							<option value="benke">本科</option>
+							<option value="yanjiusheng">研究生</option>
+							<option value="boshi">博士</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-4 col-sm-offset-5">
+						<div class="checkbox">
+							<input type="checkbox" name="protocol">同意相关服务条款和协议
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-4 col-sm-offset-5">
+						<button type="submit" class="btn btn-primary">注&nbsp;&nbsp;&nbsp;册</button>
+						<button type="reset" class="btn btn-primary">重&nbsp;&nbsp;&nbsp;置</button>
+					</div>
+				</div>
+		</form>
+		
+		<script>
+			$(function(){
+				$('#frmRegist')
+				.bootstrapValidator({
+					feedbackIcons;{
+						valid:'glyphicon glyphivon-ok',invalid:'glyphicon glyphicon-remove',
+						validating:'glyphicon glyphicon-refresh'
+					},
+					fields:{
+						username:{
+							validators:{
+								notEmpty:{
+									message:'用户名不能为空'
+								},
+								stringLength:{
+									min:6,
+									max:10,
+									teim:true,
+									message:'用户名长度必须在6到10之间'
+								},
+								regexp:{
+									regexp:/[0-9a-zA-Z_]+$/,
+									message:'用户名只能包含数字、字母或下划线'
+								},
+								remote:{//向远程服务器发送请求进行校验（必须通过http访问}
+								type:'post',
+								url:'server.json', //返回一个包含valid和message的json
+																	// message:'用户名已经被占用'
+																}
+															}
+														},
+														password:{
+															validators:{
+																notEmpty:{
+																	message:'密码不能为空'
+																},
+																different:{
+																	field:'username',
+																	message:'密码不能和用户名相同'
+																}
+															}
+														},
+														repassword:{
+															validators:{
+																notEmpty:{
+																	message:'确认密码不能为空'
+																},
+																identical:{
+																	field:'password',
+																	message:'两次输入的密码不一致'
+																}
+															}
+														},
+														email:{
+															validators:{
+																emailAddress:{
+																	message:'邮箱格式不正确'
+																}
+															}
+														},
+														age:{
+															validators:{
+																greaterThan:{
+																	value:10,
+																	inclusive:true,
+																	message:'年龄必须大于10'
+																},
+																lessThan:{
+																	value:120,
+																	message:'年龄必须小于120'
+																}
+															}
+														},
+														degree:{
+															validators:{
+																notEmpty:{
+																	message:'学历不能为空，请选择'
+																}
+															}
+														},
+														protocol:{
+															validators:{
+																notEmpty:{
+																	message:'只有接受许可协议才能继续'
+																}
+															}
+														}
+													}
+												})
+												.on('success.form.bv',function(e){ //当表单校验成功提交时触发
+													e.preventDefault(); //阻止表单提交
+								
+													var $form=$(e.target);
+								
+													// $.post('02.html',$form.serialize(),function(result){
+													// 	//TODO
+													// });
+								
+													$.ajax({
+														url:'https://api.github.com/users/tangyang8942',
+														data:$form.serialize(),
+														dataType:'jsonp',
+														success:function(result){
+															console.log(result); //result.data.avatar_url
+															$('body').append('<img src="'+result.data.avatar_url+'">');
+														},
+														error:function(){
+															$('body').append('<h3>请求失败</h3>');
+														}
+													});
+								
+												});
+										});
+		</script>
+	</body>
+</html>

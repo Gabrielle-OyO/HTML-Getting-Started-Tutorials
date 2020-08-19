@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			hr{
+				border:1px solid #666;
+			}
+			body{
+				margin:80px;
+			}
+			#myCarousel{
+				width:524px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- carousel轮播插件就是将几张大小相同的图片按顺序依次播放 -->
+		
+		<div class="carousel" id="myCarousel">
+			<!-- 指示器 -->
+			<ul class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCatousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ul>
+			<!-- 滑块 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="images/ad-01.jpg" alt="">
+				</div>
+				<div class="item">
+					<img src="images/ad-02.jpg" alt="">
+				</div>
+				<div class="item">
+					<img src="images/ad-03.jpg" alt="">
+				</div>
+				<div class="item">
+					<img src="images/ad-04.jpg" alt="">
+				</div>
+				<!-- 控制器 -->
+				<a class="carousel-control left" data-slide="prev" href="#myCarousel">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a class="carousel-control right" data-slide="next" href="#myCarousel">
+					<span class="glyphicon glyphicon-cheveron-right"></span>
+				</a>
+			</div>
+			
+			<script>
+				$('#myCarousel').carousel({
+					interval:2000,//设置自动播放的时间间隔
+					pause:null,//鼠标悬浮在图片上时是否暂停播放，取值：hover\null
+					wrap:true//是否循环播放
+				});
+			</script>
+		</div>
+	</body>
+</html>

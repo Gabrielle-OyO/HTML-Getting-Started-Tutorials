@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>bootstrap</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style>
+			hr{
+				border:1px solid #666;
+			}
+			body{
+				margin:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- tab标签页插件就是通常所说的选项卡功能 -->
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#html5">HTML5</a></li>
+			<!-- 通过data-toggle=“tab”属性的方式 -->
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#css3">css3</a></li>
+			<li><a href="#extjs">extjs</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="html5">HTML5......</div>
+			<div class="tab-pane" id="javascript">Javascript......</div>
+			<div class="tab-pane" id="css3">css3.....</div>
+			<div class="tab-pane" id="extjs">Extjs.....</div>
+		</div>
+		
+		<script>
+			$('.nav li a').on('click',function(e){
+				e.preventDefault();
+				$(this).tab('show');
+			});
+			
+			//事件
+			$('.nav li a').on('show.bs.tab',function(){
+				console.log('选项卡即将切换');
+			});
+			$('.nav li a').on('show.bs.tab',function(){
+				console.log('选项卡已经切换');
+			});
+		</script>
+	</body>
+</html>
